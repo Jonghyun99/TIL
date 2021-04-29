@@ -574,6 +574,8 @@ Transaction을 적용하기 위해 @Transactional을 설정하고 실행하면 r
 이전의 “SEOUL”을 유지하게 되고, @Transactional을 주석처리 한 후에 실행하면
 transaction처리가 되지 않기 때문에 수정된 “PUSAN” 값이 그대로 출력된다.
 
+위에 Serviceimpl 소스에서 employee의 insert id 입력값 한도를 초과시켜 에러가 발생했기 때문에 customer의 업데이트가 함께 반영이 되지 않는것(롤백)이다.
+
 ```xml
 <aop:config>
 		 <aop:pointcut id="requiredTx"
