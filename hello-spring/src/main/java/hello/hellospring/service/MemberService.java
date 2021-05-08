@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import hello.hellospring.domain.Member;
-import repository.MemberRepository;
-import repository.MemoryMemberRepository;
+import hello.hellospring.repository.MemberRepository;
+import hello.hellospring.repository.MemoryMemberRepository;
 
 public class MemberService {
 	

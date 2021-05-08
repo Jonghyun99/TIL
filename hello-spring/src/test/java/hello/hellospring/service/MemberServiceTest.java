@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import hello.hellospring.domain.Member;
-import repository.MemoryMemberRepository;
+import hello.hellospring.repository.MemoryMemberRepository;
 
 class MemberServiceTest {
 	

@@ -23,6 +23,13 @@ public class HelloController {
 		
 	}
 	
+	@GetMapping("test")
+	public String helloTest(@RequestParam(name = "name", required = false) String name, Model model) {
+		model.addAttribute("name", name);
+		return "test";
+		
+	}
+	
 	@GetMapping("hello-string")
 	@ResponseBody 
 	public String helloString(@RequestParam("name") String name) {

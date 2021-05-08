@@ -6,11 +6,11 @@ import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.commons.logging.Logger;
-import org.junit.platform.commons.logging.LoggerFactory;
+/*import org.junit.platform.commons.logging.Logger;
+import org.junit.platform.commons.logging.LoggerFactory;*/
 
 import hello.hellospring.domain.Member;
-import repository.MemoryMemberRepository;
+import hello.hellospring.repository.MemoryMemberRepository;
 
 class MemoryMemberRepositoryTest {
 
