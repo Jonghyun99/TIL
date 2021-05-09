@@ -6,7 +6,9 @@ import java.util.Optional;
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class MemberService {
 	
 	private final MemberRepository memberRepository;
