@@ -8,8 +8,7 @@ IP프로토콜, TCP프로토콜, HTTP프로토콜, Telnet, FTP 등등 다양한 
 
 인터넷 프로토콜은 4계층으로 나뉨
 
-![%5BNetwork%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%82%E1%85%A6%E1%86%BA%20%E1%84%90%E1%85%A9%E1%86%BC%E1%84%89%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B2%E1%84%8E%E1%85%B5%E1%86%A8(%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%90%E1%85%A9%E1%84%8F%E1%85%A9%E1%86%AF)%20ad045d8680494f739c48f7397607fd30/Untitled.png](%5BNetwork%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%82%E1%85%A6%E1%86%BA%20%E1%84%90%E1%85%A9%E1%86%BC%E1%84%89%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B2%E1%84%8E%E1%85%B5%E1%86%A8(%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%90%E1%85%A9%E1%84%8F%E1%85%A9%E1%86%AF)%20ad045d8680494f739c48f7397607fd30/Untitled.png)
-
+![인터넷프로토콜](https://user-images.githubusercontent.com/75297568/126247083-268bb960-5890-492b-a0af-1efcb576fecb.png)
 [https://hahahoho5915.tistory.com/15](https://hahahoho5915.tistory.com/15)
 
 ### **인터넷 프로토콜 스택의 4계층**
