@@ -1,8 +1,9 @@
 class Calculator:
-    param1 = None
-    def init(self, first):
-        self.first=first
-        return
+    def __init__(self, first, second):
+        self.first = first
+        self.second = second
+    def __init__(self):
+        pass
 
     def start(self):
 
@@ -38,7 +39,6 @@ class Calculator:
             if last == "q":
                 break
 cal1 = Calculator()
-cal1.init(3)
 # cal1.start()
 cal1.first=10
 print(cal1.first)
