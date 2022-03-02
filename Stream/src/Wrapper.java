@@ -21,6 +21,5 @@ public class Wrapper {
         int result4 = num1 * int2;
         System.out.println(result4);
 
-        Optional a;
     }
 }
