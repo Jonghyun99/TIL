@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d972e0d-3764-4118-973d-8f63fac1a256" name="Default Changelist" comment="Section6-47. Flutter Card with ListTile Widget">
-      <change afterPath="$PROJECT_DIR$/../practice_diceapp/images/dice1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice_diceapp/images/dice2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice_diceapp/images/dice3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice_diceapp/images/dice4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice_diceapp/images/dice5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice_diceapp/images/dice6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice_diceapp/lib/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice_diceapp/pubspec.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Xylophone_flutter_flearner" beforeDir="false" afterPath="$PROJECT_DIR$/../Xylophone_flutter_flearner" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../magic-8-ball-flutter-flearner" beforeDir="false" afterPath="$PROJECT_DIR$/../magic-8-ball-flutter-flearner" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practice_diceapp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../practice_diceapp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../학점은행/2022 1학기/학점은행시간표2.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../학점은행/2022 1학기/학점은행시간표2.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
