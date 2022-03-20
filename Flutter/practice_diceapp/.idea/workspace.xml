@@ -10,10 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e5732f3-a77c-48f4-9977-c24b4b2387d2" name="Default Changelist" comment="Dicee - Building Apps with State">
+      <change afterPath="$PROJECT_DIR$/../bridge_game/fonts/SDChildfundkoreaTTF.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bridge_game/fonts/malgun.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bridge_game/fonts/malgunbd.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bridge_game/fonts/malgunsl.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bridge_game/lib/game_brain.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bridge_game/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Xylophone_flutter_flearner" beforeDir="false" afterPath="$PROJECT_DIR$/../Xylophone_flutter_flearner" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../magic-8-ball-flutter-flearner" beforeDir="false" afterPath="$PROJECT_DIR$/../magic-8-ball-flutter-flearner" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../practice_layout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../practice_layout/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../학점은행/2022 1학기/학점은행시간표2.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../학점은행/2022 1학기/학점은행시간표2.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
