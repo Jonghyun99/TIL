@@ -10,12 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e5732f3-a77c-48f4-9977-c24b4b2387d2" name="Default Changelist" comment="Dicee - Building Apps with State">
-      <change afterPath="$PROJECT_DIR$/../bridge_game/fonts/SDChildfundkoreaTTF.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bridge_game/fonts/malgun.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bridge_game/fonts/malgunbd.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bridge_game/fonts/malgunsl.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bridge_game/lib/game_brain.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bridge_game/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Xylophone_flutter_flearner" beforeDir="false" afterPath="$PROJECT_DIR$/../Xylophone_flutter_flearner" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../magic-8-ball-flutter-flearner" beforeDir="false" afterPath="$PROJECT_DIR$/../magic-8-ball-flutter-flearner" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
