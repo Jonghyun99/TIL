@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'icon_content.dart';
+import 'reuseable_card.dart';
 
 const bottomContainerHeight = 80.0;
 const activeCardColour = Color(0xFF1D1E33);
+const inactiveCardColour = Color(0xFF111328);
 const bottomContainerColour = Color(0xFFEB1555);
 
 class InputPage extends StatefulWidget {
@@ -9,7 +13,16 @@ class InputPage extends StatefulWidget {
   _InputPageState createState() => _InputPageState();
 }
 
+enum Gender {
+  male,
+  female,
+  nothing
+}
+
 class _InputPageState extends State<InputPage> {
+  Gender selectGender = Gender.nothing;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,25 +33,50 @@ class _InputPageState extends State<InputPage> {
       body: Column(
         children: <Widget>[
           Expanded(
-              child: Row(
-            children: <Widget>[
-              Expanded(
-                child: ReusableCard(
-                  colour: activeCardColour,
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectGender = Gender.male;
+                      });
+                    },
+                    child: ReusableCard(
+                      colour: selectGender == Gender.male ? activeCardColour : inactiveCardColour,
+                      cardChild: IconContent(
+                        icon: FontAwesomeIcons.mars,
+                        label: 'MALE',
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-              Expanded(
-                flex: 1,
-                child: ReusableCard(
-                  colour: activeCardColour,
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectGender = Gender.female;
+                      });
+                    },
+                    child: ReusableCard(
+                      colour: selectGender == Gender.female ? activeCardColour : inactiveCardColour,
+                      cardChild: IconContent(
+                        icon: FontAwesomeIcons.venus,
+                        label: 'FEMALE',
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ],
-          )),
+              ],
+            ),
+          ),
           Expanded(
-            flex: 1,
             child: ReusableCard(
               colour: activeCardColour,
+              cardChild: IconContent(
+                icon: FontAwesomeIcons.venus,
+                label: 'FEMALE',
+              ),
             ),
           ),
           Expanded(
@@ -47,11 +85,19 @@ class _InputPageState extends State<InputPage> {
               Expanded(
                 child: ReusableCard(
                   colour: activeCardColour,
+                  cardChild: IconContent(
+                    icon: FontAwesomeIcons.venus,
+                    label: 'FEMALE',
+                  ),
                 ),
               ),
               Expanded(
                 child: ReusableCard(
                   colour: activeCardColour,
+                  cardChild: IconContent(
+                    icon: FontAwesomeIcons.venus,
+                    label: 'FEMALE',
+                  ),
                 ),
               ),
             ],
@@ -63,23 +109,6 @@ class _InputPageState extends State<InputPage> {
             height: bottomContainerHeight,
           ),
         ],
-      ),
-    );
-  }
-}
-
-class ReusableCard extends StatelessWidget {
-  ReusableCard({required this.colour});
-
-  final Color colour;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: colour,
-        borderRadius: BorderRadius.circular(10.0),
       ),
     );
   }
