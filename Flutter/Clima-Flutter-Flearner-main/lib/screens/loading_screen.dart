@@ -1,7 +1,10 @@
+import 'package:clima_flutter_flearner/screens/location_screen.dart';
+import 'package:clima_flutter_flearner/services/networking.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-
 import '../services/location.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+const apiKey = '3ff7ca57ad855ecc8e9b61a1330adf99';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -9,36 +12,44 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+
+  double latitude = 0.0;
+  double longitude = 0.0;
+
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    getLocation();
+    getLocationData();
     print('this line of code is triggered');
   }
 
-  void getLocation() async {
+  void getLocationData() async {
     Location location = Location();
-    await location.getCurrentLocation();
-    print(location.latitude);
 
+    await location.getCurrentLocation();
+
+    latitude = location.latitude;
+    longitude = location.longitude;
+    NetworkHelper networkHelper = NetworkHelper('https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
+
+    var weatherData = await networkHelper.getData();
+
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LocationScreen();
+    }));
   }
 
   @override
   Widget build(BuildContext context) {
-    String myMargin = '15';
-    double myMarginAsADouble=0.0;
-    try {
-      myMarginAsADouble = double.parse(myMargin);
-    } catch (e) {
-      print(e);
-      myMarginAsADouble = 30.0;
-    }
     return Scaffold(
-        body: Container(
-          color: Colors.red,
-          margin: EdgeInsets.all(myMarginAsADouble ?? 30.0 ),
+      body:Center(
+        child:SpinKitDoubleBounce(
+          color: Colors.white,
+          size: 100.0,
         )
+      )
     );
   }
 }
