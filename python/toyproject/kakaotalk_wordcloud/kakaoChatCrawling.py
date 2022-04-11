@@ -22,7 +22,7 @@ def do_except(text, exceptKeyword):
     return text
 
 text = ""
-person = '승욱'
+person = 'jongmin'
 except_keyword = get_except_keyword("./except_word.txt")
 font_path = 'C:/Windows/Fonts/malgun.ttf'
 
