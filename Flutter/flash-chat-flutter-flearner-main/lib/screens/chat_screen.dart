@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/constants.dart';
@@ -72,12 +71,12 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   TextButton(
                     onPressed: () {
+                      Timestamp timestamp=Timestamp.now();
                       messageTextController.clear();
-                      print("ready");
-                      //messageText + loggenInUser.email
                       _firestore.collection('messages').add({
                         'text': messageText,
                         'sender': loggedInUser.email,
+                        'timeStamp':timestamp,
                       });
                       print("success");
                     },
@@ -102,10 +101,10 @@ class MessageStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: _firestore.collection('messages').snapshots(),
+      stream: _firestore.collection('messages').orderBy('timeStamp', descending: false).snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(
               backgroundColor: Colors.lightBlueAccent,
             ),
@@ -130,7 +129,7 @@ class MessageStream extends StatelessWidget {
         return Expanded(
           child: ListView(
             reverse:true,
-            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
             children: messageBubbles,
           ),
         );
@@ -155,17 +154,17 @@ class MessageBubble extends StatelessWidget {
         children: [
           Text(
             sender,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 12.0,
               color: Colors.black54,
             ),
           ),
           Material(
-            borderRadius: isMe ? BorderRadius.only(
+            borderRadius: isMe ? const BorderRadius.only(
                 topLeft: Radius.circular(30.0),
                 bottomLeft: Radius.circular(30.0),
                 bottomRight: Radius.circular(30.0)) :
-            BorderRadius.only(
+            const BorderRadius.only(
                 topRight: Radius.circular(30.0),
                 bottomLeft: Radius.circular(30.0),
                 bottomRight: Radius.circular(30.0)),
