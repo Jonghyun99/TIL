@@ -12,16 +12,16 @@
 5. 데이터 타입 (Data Types)
 6. 연산자 (Operators)
 7. 조건문 (If, Else)
-8. When
-9. While Loop
-10. Break/Continue
-11. 배열 (Arrays)
-12. 반복문 (For Loop)
-13. Ranges
-14. 함수 (Functions)
-15. 객체지향프로그래밍 (OOP)
-16. 클래스/객체 (Classes/Objects)
-17. 생성자 (Constrctors)
+8. While Loop
+9. Break/Continue
+10. 배열 (Arrays)
+11. 반복문 (For Loop)
+12. Ranges
+13. 함수 (Functions)
+14. 클래스/객체 (Classes/Objects)
+15. 생성자 (Constrctors)
+16. 상속 (Inheritance)
+17. NullSafe
 
 # 1. 구문 (Syntax)
 
@@ -376,6 +376,8 @@ x += 5 // x = 15
 
 ! : Not 조건
 
+유용한 다른 연산자들에 대해서는 다음 챕터에서 알아볼게요.
+
 # 7. 조건문 (If ... Else)
 
 조건에 따라 다른 동작을 실행시킬 수 있습니다.
@@ -519,7 +521,7 @@ while (i < 10) {
 }
 ```
 
-# 9. 배열 (Arrays)
+# 10. 배열 (Arrays)
 
 배열은 하나의 변수에 여러 값을 넣을 때 사용합니다.
 
@@ -579,7 +581,7 @@ for (x in cars) {
 }
 ```
 
-# 10. For 반복문 (For Loop)
+# 11. For 반복문 (For Loop)
 
 코틀린의 `for문`은 자바의 for문과 형태가 다소 다릅니다.
 
@@ -597,7 +599,7 @@ for (x in nums) {
 }
 ```
 
-# 11. 범위 반복문 (Ranges)
+# 12. 범위 반복문 (Ranges)
 
 `for loop` 와 함께 사용하며 `..` 기호와 함께 범위를 생성합니다.
 
@@ -635,7 +637,7 @@ for (nums in 5..15) {
 
 `break`와 `continue` 또한 사용할 수 있다.
 
-# 12. 함수 (Functions)
+# 13. 함수 (Functions)
 
 함수는 호출될 때만 실행되며, 메소드라고도 부릅니다.
 
@@ -703,6 +705,267 @@ fun main() {
 }
 ```
 
-학습 사이트
+## 반환 (Return)
+
+함수의 실행결과를 반환해주기 위해 `return` 키워드를 사용할 수 있습니다.
+자바의 함수 구조와 달리 코틀린에서는 반환타입을 함수선언부 가장 뒤에 적어줍니다.
+
+```kotlin
+fun MyFunction():String{
+	return "ReturnWord'
+}
+
+var strVar = myFunction() // ReturnWord 값 할당
+```
+
+다음과 같이 두개 이상의 인자를 사용하여 반환할 수 있습니다.
+
+```kotlin
+fun myFunction(x: Int, y: Int): Int {
+  return (x + y)
+}
+
+fun main() {
+  var result = myFunction(3, 5)
+  println(result)
+}
+```
+
+## 축약형 구조
+
+`=` 연산자를 이용해 `return` 키워드를 생략하고 표현할 수 있습니다.
+
+```kotlin
+fun myFunction(x: Int, y: Int) = x + y
+
+fun main() {
+  var result = myFunction(3, 5)
+  println(result)
+}
+
+// 8 (3 + 5)
+```
+
+# 14. 클래스와 객체 (Classes/Objects)
+
+클래스는 하나의 객체로 이루어진 함수(기능)과 변수(특성)의 모음입니다.
+예를들면 자동차 클래스는 색, 모델, 크기 등의 특성을 가질 수 있고, 주차, 주행, 브레이크 등의 기능을 가질 수 있습니다.
+
+```kotlin
+class Car {
+  var brand = ""
+  var model = ""
+  var year = 0
+
+	fun driving(){
+		println("Driving...")
+	}
+
+	fun parknig(){
+		println("parking...")
+	}
+
+	fun breaking(){
+		println("breaking...")
+	}
+}
+```
+
+```kotlin
+// c1 변수에 Car 클래스를 대입함으로서 c1은 하나의 객체로 생성됩니다.
+val c1 = Car()
+
+// Access the properties and add some values to it
+c1.brand = "Ford"
+c1.model = "Mustang"
+c1.year = 1969
+
+println(c1.brand)   // Outputs Ford
+println(c1.model)   // Outputs Mustang
+println(c1.year)    // Outputs 1969
+```
+
+>참고로 코틀린에서의 최상위 부모객체는 `Any`입니다 (자바의 Object)
+
+# 15. 생성자 (Constructors)
+
+생성자는 클래스를 이용해 객체를 생성할 때, 초기 값을 지정해주는 역할을 합니다.
+
+```kotlin
+class Car(brand: String, var model: String, var year: Int)
+
+fun main() {
+  val c1 = Car("Ford", "Mustang", 1969)
+}
+```
+
+자바에서와 달리 클래스의 선언과 동시에 파라미터에 변수를 대입함으로서 생성자를 생성할 수 있습니다.
+
+>참고, 파라미터의 기본 값을 주어 생성할 수 있습니다.
+
+```kotlin
+class Car(brand: String, var model: String="현대", var year: Int=2010)
+```
+
+위와 같이 작성하면 brand는 필수로, model과 year은 선택적으로 주입하여 생성할 수 있습니다.
+
+## init 키워드
+
+클래스 생성자는 코드블럭을 가질 수 없는데, init 키워드를 이용해 클래스가 생성될 때 원하는 동작을 시행할 수 있습니다.
+
+```kotlin
+private class Car (var brand: String, var model: String, var year: Int){
+    init {
+        println("NewCar!")
+    }
+}
+
+fun main() {
+    val c1 = Car("Ford", "Mustang", 1969)
+    // main을 실행시키면 NewCar! 가 출력됩니다.
+}
+```
+
+이를 이용해 유효성 검증과 같은 객체 생성 시 초기화 동작을 지정할 수 있습니다.
+
+## constructor 키워드
+
+생성자에는 `constrctor` 키워드가 생략되어 있습니다.
+싱글톤 패턴을 사용할 때 constructors 키워드를 붙여주면 더 가시성 있게 사용할 수 있습니다.
+
+```kotlin
+private class Car constrctor(...)
+```
+
+`constructor`는 부생성자를 선언할 때 사용합니다. 부 생성자는 클래스 내부에서 선언하는 생성자입니다.
+
+```kotlin
+private class Car (var brand: String, var model: String, var year: Int){
+    var color:String ="red"
+    constructor(color:String,brand: String,model: String,year: Int) : this(brand, model, year){
+        this.color=color
+    }
+}
+```
+
+위 예제와 같이 기본 생성자와 별도로 color 필드가 추가된 객체를 생성할 때 별도로 생성자를 만들어 사용할 수 있습니다. 이 때, 주 생성자를 기반으로 생성이 되기 때문에 this 키워드를 사용하여 생성을 위임하고, color 생성자를 별도로 추가해주는 것이라 할 수 있습니다.
+
+또한, 부 생성자는 코드블럭을 가질 수 있어 별도 로직을 추가할 수 있습니다.
+
+>다른 사람들의 기술 블로그에는 `anotation`이나 `private` 접근제어자에서 생성자를 선언할 때 꼭 >`constructor` 키워드를 붙여주어야 한다는 글이 많던데, 직접 테스트 코드를 작성했을 때는 >constructor를 붙여주지 않아도 잘 사용이 되더라고요, 아마 버전이 지나면서 수정이 된 부분이 아>닌가 싶은데, 언제 수정된건지 찾아보기 어렵네요.
+
+# 16. 상속 (Inheritance)
+
+코틀린에서는 상속 관계를 자식클래스와 부모클래스 (`subclass` 와 `superclass` ) 라고 명칭합니다.
+
+```kotlin
+// Superclass 부모클래스
+open class MyParentClass {
+  val x = 5
+}
+
+// Subclass 자식클래스
+class MyChildClass: MyParentClass() {
+  fun myFunction() {
+    println(x) // x는 부모 클래스의 5에 접근할 수 있습니다.
+  }
+}
+
+// Create an object of MyChildClass and call myFunction
+fun main() {
+  val myObj = MyChildClass()
+  myObj.myFunction()
+}
+```
+
+자바와 다르게 부모 클래스에 `open`키워드를 붙여주어 상속가능한 클래스임을 표기합니다.
+자식클래스 선언부에 `: MyParentClass()` 로 상속시켜줍니다. (자바의 `extends` 와 비슷합니다.)
+인터페이스 또한 클래스 상속과 같이 콜론을 이용해 구현해줍니다.
+
+# 17. NullSafe
+
+코틀린이 자바와의 다른 점으로 코틀린은 Null을 허용하지 않는다는 점 입니다.
+그렇기에 Null이 들어갈 수 있는 변수를 사용하려면 타입 뒤에 특정 키워드를 선언해주어야 합니다.
+
+## **? 연산자**
+
+`?` 키워드는 타입 뒤에 선언해주어 변수에 null이 들어갈 수 있음을 알립니다.
+
+```kotlin
+var var1:String = null // 런타임에러 발생!
+var var2:String? = null // var2에 null 대입됨
+```
+
+## ?. (안전한 호출 연산자)
+
+`?.` 키워드는 메서드를 호출할 때 널체크를 함께 해줍니다.
+
+```kotlin
+var car1:Car? = Car()
+car1.drive() // 런타임 에러 발생
+
+var car2:Car? = Car()
+car2?.drive() // 정상
+```
+
+car1 객체가 `nullable`로 선언되었기 때문에 car1.drive()를 호출할 때 null이 발생할 수 있다고 런타임에러가 발생합니다. 여기서 `?.` 키워드를 사용하면 car1 객체가 null일 경우 null을 반환해줍니다.: 키워드
+
+## **?: (엘비스 연산자[)](https://codechacha.com/ko/kotlin-elvis-operation/)**
+
+`?:` 키워드는 값이 Null일 경우 기본 값을 지정해줄 수 있습니다.
+
+```kotlin
+var var1:String? = null
+var var2 = var1?:"isNull!"
+print(var2) // isNull 출력
+```
+
+## as? (안전한 캐스팅)
+
+코틀린에서는 타입 변환에 `as`를 사용합니다.
+이 때 지정한 타입으로 바꿀 수 없으면 ClassCastException이 발생하는데, `as?`연산자를 통해 변환 가능한 타입인지 검사할 수 있습니다.
+
+```kotlin
+foo as? Type
+```
+
+변환 가능 시 Type으로 변환, 불가능 시 null 반환
+
+```kotlin
+val otherPerson = o as? Person ?: return false
+```
+
+엘비스 연산자와 함께 사용할 수 있습니다.
+
+## !! 연산자
+
+변수가 null이 아님을 확신할 때 사용합니다.
+
+```kotlin
+var test:String ?= null
+test = "value"
+println(test!!)
+```
+
+위와 같이 사용하며 만약 !!를 선언해주고 값을 할당해주지 않으면 NullPointException이 발생합니다.
+
+## 강력한 NullCheck
+
+코틀린에서는 String 타입의 null을 체크할 수 있는 메소드가 있습니다.
+`isNullOrEmpty` : 공백도 문자로 취급함
+
+`isNullOrBlank` : 공백도 Null로 취급함
+
+```kotlin
+var test:String = " "
+println(test.isNullOrEmpty()) // false
+println(test.isNullOrBlank()) // true
+```
+
+위 함수를 재정의하여 사용하여 깔끔한 코드를 작성할 수 있을 듯 합니다.
+
+자바와 비교해서 불필요한 선언들이 줄어든 점과 Null처리가 유연해진 점이 마음에 드네요.
+
+학습 및 참고 사이트
 
 [https://www.w3schools.com/kotlin/index.php](https://www.w3schools.com/kotlin/index.php)
