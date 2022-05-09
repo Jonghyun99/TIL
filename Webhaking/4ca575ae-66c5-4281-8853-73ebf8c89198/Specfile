@@ -1,0 +1,12 @@
+[wargame]
+title = Showdown
+flag = GoN{sample_flag}
+tags = pwnable
+
+[vm]
+os = linux
+memory = 256
+disk = 256
+ports = 56925/tcp
+allow_outgoing = true
+docker_compose = false
