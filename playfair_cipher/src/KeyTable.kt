@@ -2,14 +2,14 @@ import java.lang.Exception
 
 class KeyTable() {
 
-    var keyTable = Array<Array<Char>>(5) { Array<Char>(5) { ' ' } }
+    var key = Array<Array<Char?>>(5) { Array<Char?>(5) { null } }
 
-    fun makeKeyTable(cipherKey: String): Array<Array<Char>> {
+    fun makeKey(cipherKey: String): Array<Array<Char?>> {
         try {
             var rows = 0
             var columns = 0
             for (char in cipherKey) {
-                keyTable[rows][columns] = char
+                key[rows][columns] = char
                 columns++
                 if (columns > 4) {
                     columns = 0
@@ -18,36 +18,39 @@ class KeyTable() {
             }
         } catch (e: ArrayIndexOutOfBoundsException) {
             println("배열 대입할 수 있는 값 초과: $e")
-            return keyTable
+            return key
         } catch (e: Exception) {
             println("미지정 오류: $e")
         }
 
 
-//        println("keyTable: ${keyTable.contentDeepToString()}")
-//        println("alphabetTable: ${makeAlphabetArray(cipherKey)}")
-        combineAlphabetArrayAndKeyTable(keyTable,makeAlphabetArray(cipherKey))
-
-        return keyTable
+        combineAlphabetArrayAndKeyTable(key, makeAlphabetArray(cipherKey))
+        return key
     }
 
     private fun makeAlphabetArray(cipherKey: String): CharArray {
         var alphabetArray = ArrayList<Char>()
         for (i in 'A'..'Z') {
-            alphabetArray.add(i)
+            if(i!='J') {    // I랑 J는 같은 문자로 취급한다.
+                alphabetArray.add(i)
+            }
         }
         return alphabetArray.subtract(cipherKey.toCharArray().asIterable().toSet()).toCharArray()
     }
 
-    private fun combineAlphabetArrayAndKeyTable(keyTable: Array<Array<Char>>, alphabetArray:CharArray){
-        println("keyTable = ${keyTable.contentDeepToString()}")
-        println("alphabetArray = ${alphabetArray.contentToString()}")
-        var rows = 0
+    private fun combineAlphabetArrayAndKeyTable(keyTable: Array<Array<Char?>>, alphabetArray: CharArray):Array<Array<Char?>> {
         var columns = 0
-        for(i in keyTable.indices) {
-            for (j in keyTable[columns]) {
-                println("j: $j")
+        var cnt = 0
+        for (i in keyTable.indices) {
+            for (j in keyTable[i]) {
+                if (j == null) {
+                    keyTable[i][columns] = alphabetArray[cnt]
+                    cnt++
+                }
+                columns++
+                if(columns>=5) columns=0
             }
         }
+        return keyTable
     }
 }
