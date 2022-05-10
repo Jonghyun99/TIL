@@ -1,6 +1,11 @@
 class PlayfairAlgorithm {
 
-    fun test(){
-        println("hi")
+    fun encrypt(plainText:String, key:Array<Array<Char?>>){
+        var plainText= ""
+        if(plainText.length%2==1){
+            plainText += "X"
+        }
+
+
     }
 }
