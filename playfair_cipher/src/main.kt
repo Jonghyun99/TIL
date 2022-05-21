@@ -7,8 +7,8 @@ import java.util.*
 fun main() {
 
     //클래스선언
-    var keyTable:KeyTable = KeyTable()
-    var cipher:PlayfairAlgorithm = PlayfairAlgorithm()
+    var keyClass:KeyTable = KeyTable()
+    var cipherClass:PlayfairAlgorithm = PlayfairAlgorithm()
 
     //변수선언
     var plainText:String="Hello" // 평문
@@ -16,10 +16,9 @@ fun main() {
     var cipherKey = makeCipherKey(cipherText.uppercase(Locale.getDefault()))  //암호문 변형 APPLE -> APLE
 
 
-    var key = keyTable.makeKey(cipherKey)   // 암호표
+    var keyTable = keyClass.makeKey(cipherKey)   // 암호표
 
-    println("resultKey:${key.contentDeepToString()}")
-    cipher.encrypt(plainText,key)
+    cipherClass.encrypt(plainText,keyTable)
 }
 
 
