@@ -4,10 +4,9 @@ import KeyTable
 import PlayfairAlgorithm
 
 fun main() {
+    var cipherKey:String = "TEST"
     var keyTable:KeyTable = KeyTable()
 //    println(keyTable.makeKeyTable("ILIKEAPPLE").contentDeepToString())
-    var char = 'A'
-    println(char+30)
-
+    keyTable.makeKeyTable(cipherKey)
 }
 
