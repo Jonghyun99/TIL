@@ -23,14 +23,31 @@ class KeyTable() {
             println("미지정 오류: $e")
         }
 
+
+//        println("keyTable: ${keyTable.contentDeepToString()}")
+//        println("alphabetTable: ${makeAlphabetArray(cipherKey)}")
+        combineAlphabetArrayAndKeyTable(keyTable,makeAlphabetArray(cipherKey))
+
         return keyTable
     }
 
-    fun makeAlphabetArray(cipherKey: String){
+    private fun makeAlphabetArray(cipherKey: String): CharArray {
         var alphabetArray = ArrayList<Char>()
-        for(i in 'A'..'Z'){
+        for (i in 'A'..'Z') {
             alphabetArray.add(i)
         }
+        return alphabetArray.subtract(cipherKey.toCharArray().asIterable().toSet()).toCharArray()
+    }
 
+    private fun combineAlphabetArrayAndKeyTable(keyTable: Array<Array<Char>>, alphabetArray:CharArray){
+        println("keyTable = ${keyTable.contentDeepToString()}")
+        println("alphabetArray = ${alphabetArray.contentToString()}")
+        var rows = 0
+        var columns = 0
+        for(i in keyTable.indices) {
+            for (j in keyTable[columns]) {
+                println("j: $j")
+            }
+        }
     }
 }
