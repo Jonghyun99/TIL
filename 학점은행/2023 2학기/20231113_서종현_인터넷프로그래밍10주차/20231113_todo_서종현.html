@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    #taskList li {
+        margin: 5px 0;
+    }
+
+    /* 새로운 스타일링 */
+    button {
+        margin-left: 10px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+    <title>할 일 목록</title>
+</head>
+<body>
+    <h1>내 할 일 목록</h1>
+    <input type="text" id="newTask" placeholder="할 일을 추가하세요">
+    <button onclick="addTask()">추가</button>
+    <ul id="taskList"></ul>
+
+    <script>
+	function addTask() {
+    var newTask = document.getElementById('newTask').value;
+    if (newTask.trim() === '') {
+        alert('할 일을 입력하세요!');
+        return;
+    }
+    var li = document.createElement('li');
+    li.textContent = newTask + ' ';
+
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = '제거';
+    deleteButton.onclick = function() {
+        li.remove();
+    };
+
+    li.appendChild(deleteButton);
+    document.getElementById('taskList').appendChild(li);
+    document.getElementById('newTask').value = '';
+}
+	</script>
+</body>
+</html>
