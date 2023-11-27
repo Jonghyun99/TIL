@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>도서 관리 시스템</title>
+</head>
+<body>
+    <h1>도서 목록</h1>
+    <ul id="books-list"></ul>
+    <h2>새 도서 추가</h2>
+    <form id="add-book-form">
+        <input type="text" id="title" placeholder="제목">
+        <input type="text" id="author" placeholder="저자">
+        <button type="submit">추가</button>
+    </form>
+
+    <div id="edit-form-container" style="display:none;">
+        <h2>도서 수정</h2>
+        <form id="edit-book-form">
+            <input type="hidden" id="edit-id">
+            <input type="text" id="edit-title" placeholder="제목">
+            <input type="text" id="edit-author" placeholder="저자">
+            <button type="submit">수정</button>
+            <button type="button" onclick="closeEditForm()">취소</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
